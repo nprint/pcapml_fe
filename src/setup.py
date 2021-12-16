@@ -8,10 +8,10 @@ pcapml_fe = Extension(name='pcapml_fe',
                                    '../include/sample/', '../include/pcap/',
                                    '../include/pcapng/'],
                      libraries=['pcap', 'stdc++'],
-                     sources=['pcapml_pymod.cpp', '../src/pcapng/block_pcapng.cpp',
-                              '../src/pcapng/reader_pcapng.cpp', '../src/pcapng/sorter_pcapng.cpp',
-                              '../src/util.cpp', '../src/sample/sampler.cpp',
-                              '../src/sample/sample.cpp']
+                     sources=['pcapml_pymod.cpp', '../pcapML/src/pcapng/block_pcapng.cpp',
+                              '../pcapML/src/pcapng/reader_pcapng.cpp', '../pcapML/src/pcapng/sorter_pcapng.cpp',
+                              '../pcapML/src/util.cpp', '../pcapML/src/sample/sampler.cpp',
+                              '../pcapML/src/sample/sample.cpp']
                     )
 
 setup(name="pcapml_fe",
