@@ -108,7 +108,6 @@ sampler_next(SamplerState *sstate)
             }
 
             PyObject *packetlst = PyList_New(s->get_pkts().size());
-            std::cout << packetlst->ob_refcnt << std::endl;
 
             PyTypeObject *PcapmlSampleType = PyStructSequence_NewType(&pcapml_sample_desc);
             PyTypeObject *PcapmlPacketType = PyStructSequence_NewType(&pcapml_packet_desc);
