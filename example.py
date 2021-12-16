@@ -21,20 +21,17 @@ def extract_info(traffic_sample):
     Each sample contains the sampleID, metadata and a list of packets 
     with their associated timestamps
     '''
+    print("Sample ID:", traffic_sample.sid)
+    print("Sample metadata:", traffic_sample.metadata)
  
     '''
     iterating over the traffic sample (packets and timestamps)
     Assuming you've imported scapy as 'import scapy.all as scapy'
     you can transform to Scapy packets with 'scapy.Ether(pkt_buf)'
     '''
-    print(traffic_sample.sid)
-    print(traffic_sample.metadata)
-
     for pkt in traffic_sample.packets:
-        print(pkt.ts, pkt.raw_bytes)
-        # pkt = scapy.packet.Packet(pkt.raw_bytes)#.getlayer(Raw)
-        # print(pkt.type)
         # Extract features
+        print(pkt.ts, pkt.raw_bytes)
         pass
 
 if __name__ == '__main__':
