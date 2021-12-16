@@ -37,7 +37,7 @@ static PyStructSequence_Field pcapml_sample_fields[] = {
 /* PcapmlSample description. Points at fields from pcapml_sample_fields */
 static PyStructSequence_Desc pcapml_sample_desc = {
     "pcapml.sample",
-    NULL,
+    "pcapML sample structsequence", // docstring can't be NULL!! Will SEGFAULT
     pcapml_sample_fields,
     3
 };
@@ -57,7 +57,7 @@ static PyStructSequence_Field pcapml_packet_fields[] = {
 /* PcapmlPacket description. Points at fields from pcapml_packet_fields */
 static PyStructSequence_Desc pcapml_packet_desc = {
     "pcapml.packet",
-    NULL,
+    "pcapML packet structsequence", // docstring can't be NULL!! Will SEGFAULT
     pcapml_packet_fields,
     2
 };
@@ -108,6 +108,7 @@ sampler_next(SamplerState *sstate)
             }
 
             PyObject *packetlst = PyList_New(s->get_pkts().size());
+            std::cout << packetlst->ob_refcnt << std::endl;
 
             PyTypeObject *PcapmlSampleType = PyStructSequence_NewType(&pcapml_sample_desc);
             PyTypeObject *PcapmlPacketType = PyStructSequence_NewType(&pcapml_packet_desc);
@@ -133,7 +134,7 @@ sampler_next(SamplerState *sstate)
 
             /* Place the packet list in the sample */
             PyStructSequence_SET_ITEM(pcapmlsample, 2, packetlst);
-
+            
             return pcapmlsample;
     }
 
