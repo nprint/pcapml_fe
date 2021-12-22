@@ -1,3 +1,3 @@
 [submodule "pcapml"]
-	path = pcapml
+	path = src/pcapml
 	url = https://github.com/nprint/pcapml
