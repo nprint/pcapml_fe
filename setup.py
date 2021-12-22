@@ -1,9 +1,6 @@
 from setuptools import setup, Extension
 
 pcapml_fe = Extension(name='pcapml_fe',
-                     define_macros = [('MAJOR_VERSION', '0'),
-                                      ('MINOR_VERSION', '1')],
-
                      include_dirs=['./src/pcapml/include/', './src/pcapml/include/dir/', './src/pcapml/include/label',
                                    './src/pcapml/include/sample/', './src/pcapml/include/pcap/',
                                    './src/pcapml/include/pcapng/'],
@@ -15,15 +12,23 @@ pcapml_fe = Extension(name='pcapml_fe',
                               './src/pcapml/src/sample/sample.cpp']
                     )
 
+try:
+    import pypandoc
+    long_description = pypandoc.convert('README.md', 'rst')
+except(IOError, ImportError):
+    print('EEE')
+    long_description = open('README.md').read()
+
 setup(name="pcapml_fe",
-      version="0.0.1",
-      description="Python interface for pcapML feature exploration SETUP.PY",
+      version="0.0.3",
+      description="Python interface for pcapML feature exploration library",
       author="The nPrint team",
       license='Apache 2.0 license',
       url="https://nprint.github.io/pcapml_fe",
       author_email="nprint.pr@gmail.com",
       platforms = ["Linux", "MacOS"],
       package_dir = {'': 'src',},
+      long_description=long_description,
       packages = ['pcapml_fe_helpers'],
       install_requires=['scapy',
                         'dpkt',
