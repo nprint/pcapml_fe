@@ -1,7 +1,7 @@
 import argparse
 
 import pcapml_fe
-from scapy.all import *
+# from scapy.all import *
 
 def main():
     '''
