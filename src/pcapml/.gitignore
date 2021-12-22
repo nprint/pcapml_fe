@@ -1,0 +1,10 @@
+# data
+*.pcapng
+*.pcap
+
+*.Po
+*.dirstamp
+*.in
+
+# c++
+*.o
