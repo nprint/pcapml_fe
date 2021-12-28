@@ -28,8 +28,8 @@ def extract_info(traffic_sample):
     iterating over the traffic sample (packets and timestamps)
     '''
     for pkt in traffic_sample.packets:
-        # Extract features
-        print(pkt.ts)
+        # Print packet timestamp and raw bytes
+        print(pkt.ts, pkt.raw_bytes)
 
         dpacket = dpkt_readEther(pkt.raw_bytes)
         dpacket.pprint()
